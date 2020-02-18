@@ -77,8 +77,8 @@ COPY script/entrypoint.sh /entrypoint.sh
 COPY config/airflow.cfg ${AIRFLOW_USER_HOME}/airflow.cfg
 
 RUN chown -R airflow: ${AIRFLOW_USER_HOME}
-RUN sudo chown -R ubuntu /usr/local/airflow
-RUN sudo chgrp -R ubuntu /usr/local/airflow
+RUN chown -R ubuntu /usr/local/airflow
+RUN chgrp -R ubuntu /usr/local/airflow
 
 EXPOSE 8080 5555 8793
 
