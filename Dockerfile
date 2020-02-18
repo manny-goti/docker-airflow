@@ -72,6 +72,9 @@ RUN set -ex \
         /usr/share/man \
         /usr/share/doc \
         /usr/share/doc-base
+        
+RUN sudo chown -R ubuntu /usr/local/airflow
+RUN sudo chgrp -R ubuntu /usr/local/airflow
 
 COPY script/entrypoint.sh /entrypoint.sh
 COPY config/airflow.cfg ${AIRFLOW_USER_HOME}/airflow.cfg
